@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Lorem, ipsum dolor.</h2>
+    <h2>Lorem, ipsum dolor.</h2>
+    <form></form>
+    <div class="account">
+        <label for="account">account</label>
+        <input id="account" type="text" placeholder="huichun">
+    </div>
+
+    <div class="password">
+        <label for="password">password</label>
+        <input id="password" type="password">
+    </div>
+
+    </form>
+    <button id="btn" type="button">LOG IN</button>
+    <button id="show" type="button">get</button>
+    <!-- //顯示帳號密碼 -->
+    <p id="ac"></p>
+    <p id="pwd"></p>
+</body>
+
+</html>
+<script>
+    // setArea
+    const btnDom = document.querySelector("#btn")
+    const showDom = document.querySelector("#show")
+    const accountDom = document.querySelector("#account")
+    const passwordDom = document.querySelector("#password")
+    // getArea
+    const acDom = document.querySelector("#ac")
+    const pwdOutPutDom = document.querySelector("#pwd")
+    //LocalStorge
+    // localStorage.setItem("Key", "Value")
+
+    btnDom.addEventListener("click", () => {
+        const personnalAccount = {
+            account: accountDom.value,//存成obj
+            password: passwordDom.value,//存成obj
+        }
+        sessionStorage.setItem("personnalAccount", JSON.stringify(personnalAccount))//obj
+        // const account = accountDom.value;
+        // const password = passwordDom.value;
+        // sessionStorage.setItem("account", account) //存在本次瀏覽器
+        // sessionStorage.setItem("password", password)//存在本次瀏覽器
+        // localStorage.setItem("account", account) //存在該瀏覽器
+        // localStorage.setItem("password", password) //存在該瀏覽器
+
+        // {"account":"huichun"}
+        console.log(account)
+        console.log(password)
+        // console.log(personnalAccount)
+    })
+
+    showDom.addEventListener("click", () => {
+        const personnalAccount = sessionStorage.getItem("personnalAccount")//obj
+        // const getAccount = localStorage.getItem("account")//存在該瀏覽器
+        // const getPwd = localStorage.getItem("password")//存在該瀏覽器
+        // const getAccount = sessionStorage.getItem("account")//存在本次瀏覽器
+        // const getPwd = sessionStorage.getItem("password")//存在本次瀏覽器
+        // acDom.innerText = getAccount
+        // pwdOutPutDom.innerText = getPwd
+    })
+</script>
